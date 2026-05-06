@@ -500,7 +500,7 @@
         console.log("Submitting payload:", data);
         
         // 直接 send to Apps Script (通过fetch)
-        if (GOOGLE_SHEET_API_URL === "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec") {
+        if (GOOGLE_SHEET_API_URL === "https://script.google.com/macros/s/AKfycbyFvtZAuPFvwjeeFclQH0VqQw4sCFeHZ5z0uz0zzD-q7W2O-Q0wwdBot_dmW4qrjLIY/exec") {
             statusDiv.innerHTML = "⚠️ [DEMO] Please set your Apps Script URL.<br>请编辑代码中 GOOGLE_SHEET_API_URL 变量为您的Web App地址。下方显示即将提交的数据预览(未实际存储)。<br><br><strong>数据预览：</strong><br>" + JSON.stringify(data, null, 2).substring(0, 500) + "...<br><br> ✅ 如需真实提交，请按下方指导部署。";
             return;
         }
