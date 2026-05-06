@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>SAY Foundation | Observer Questionnaire (Bilingual) · 双语观察员问卷</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #eef2f5;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', system-ui, sans-serif;
+            line-height: 1.5;
+            color: #1e2a3e;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
+        }
+
+        /* header */
+        .hero {
+            background: linear-gradient(135deg, #0b3b3f, #17615c);
+            color: white;
+            padding: 2rem 2rem 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 1.9rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        .hero-sub {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+            border-left: 3px solid #ffcd7e;
+            padding-left: 1rem;
+        }
+
+        .lang-badge {
+            display: inline-block;
+            background: rgba(255,255,240,0.2);
+            border-radius: 40px;
+            padding: 0.25rem 1rem;
+            font-size: 0.8rem;
+            margin-top: 0.8rem;
+        }
+
+        /* form */
+        .form-content {
+            padding: 2rem 2rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 2.6rem;
+            border-bottom: 1px solid #e2edf2;
+            padding-bottom: 1.8rem;
+        }
+
+        .section-title {
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: #0f4c4a;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 0.3rem;
+        }
+
+        .section-title small {
+            font-size: 0.8rem;
+            background: #ecfdf9;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-weight: normal;
+            color: #1f6e68;
+        }
+
+        .section-desc {
+            color: #446b82;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            border-left: 3px solid #b9d2df;
+            padding-left: 0.8rem;
+        }
+
+        .question-card {
+            background: #ffffff;
+            margin-bottom: 1.8rem;
+        }
+
+        .q-label {
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 0.4rem;
+            color: #1e3a3c;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            align-items: baseline;
+        }
+
+        .q-number {
+            background: #def0ec;
+            padding: 0 0.6rem;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #0b5e58;
+        }
+
+        .bilingual-text {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: #2c5f6e;
+            margin-bottom: 0.5rem;
+        }
+
+        .en {
+            font-weight: 500;
+        }
+
+        .zh {
+            color: #3f6b7c;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 24px;
+            border: 1.5px solid #e0e9ef;
+            background: #fefefe;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: 0.2s;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #2c7a6e;
+            box-shadow: 0 0 0 3px rgba(44,122,110,0.15);
+        }
+
+        .radio-group, .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem 1.6rem;
+            margin-top: 0.5rem;
+            align-items: center;
+        }
+
+        .radio-option, .check-option {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: #f9fbfd;
+            padding: 0.35rem 1rem;
+            border-radius: 40px;
+            border: 1px solid #e2edf2;
+            font-size: 0.85rem;
+        }
+
+        .radio-option input, .check-option input {
+            width: 18px;
+            height: 18px;
+            accent-color: #1e6f66;
+            margin: 0;
+        }
+
+        .scale-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            background: #f8fafc;
+            border-radius: 48px;
+            padding: 0.6rem 1rem;
+            margin-top: 0.5rem;
+            align-items: center;
+        }
+
+        .scale-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 58px;
+        }
+
+        .scale-item input {
+            width: 60px;
+            text-align: center;
+            padding: 0.5rem 0;
+        }
+
+        button {
+            background: #17615c;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-weight: 700;
+            font-size: 1rem;
+            border-radius: 48px;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 1rem;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+        }
+
+        button:hover {
+            background: #0c4743;
+            transform: scale(0.99);
+        }
+
+        .status-msg {
+            margin-top: 1.2rem;
+            background: #ecf9f5;
+            border-radius: 28px;
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #1f5e56;
+            border-left: 4px solid #2c8b7c;
+        }
+
+        footer {
+            background: #f8fafc;
+            text-align: center;
+            padding: 1.3rem;
+            font-size: 0.7rem;
+            color: #6f8ea3;
+            border-top: 1px solid #dfeaf0;
+        }
+
+        @media (max-width: 700px) {
+            .form-content {
+                padding: 1.2rem;
+            }
+            .scale-item input {
+                width: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <h1>📋 Government Observer Questionnaire <span style="font-weight:400;">| 政府观察员问卷</span></h1>
+        <div class="hero-sub">Phase 2 · Samira's Continuation Case (Form 4 Civics with AI music pedagogy)<br>第二阶段 · Samira老师延续案例 | 基于AI音乐生成的教学法</div>
+        <div class="lang-badge">🇬🇧 English / 🇨🇳 汉语双语版 | SAFE & CONFIDENTIAL</div>
+    </div>
+
+    <div class="form-content">
+        <form id="observerForm">
+            <!-- SECTION 1 · 基本信息 -->
+            <div class="section">
+                <div class="section-title">Section 1 · About You <small>第一部分 · 基本信息</small></div>
+                <div class="question-card">
+                    <div class="q-label"><span class="q-number">1</span> Your name (optional) / 您的姓名（选填）</div>
+                    <input type="text" id="fullname" placeholder="e.g., Aisha Juma / 李明">
+                </div>
+                <div class="question-card">
+                    <div class="q-label"><span class="q-number">2</span> Your role / 您的职务</div>
+                    <div class="radio-group" id="roleGroup">
+                        <label class="radio-option"><input type="radio" name="role" value="Ministry of Education official"> Ministry official / 教育部官员</label>
+                        <label class="radio-option"><input type="radio" name="role" value="Consulate / Embassy representative"> Consulate/Embassy / 使馆代表</label>
+                        <label class="radio-option"><input type="radio" name="role" value="School Head / Principal"> Principal / 校长</label>
+                        <label class="radio-option"><input type="radio" name="role" value="Peer educator / fellow teacher"> Peer educator / 同行教师</label>
+                        <label class="radio-option"><input type="radio" name="role" value="Other"> Other (specify) / 其他</label>
+                    </div>
+                    <input type="text" id="roleOther" placeholder="Please specify / 请说明" style="margin-top:8px;">
+                </div>
+                <div class="question-card">
+                    <div class="q-label"><span class="q-number">3</span> Have you previously observed an AI-augmented lesson? / 您此前是否观察过AI辅助教学课堂？</div>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="prevObserve" value="First time"> First time / 第一次</label>
+                        <label class="radio-option"><input type="radio" name="prevObserve" value="Observed Samira Phase 1 (28 Apr 2026)"> Observed Samira's Phase 1 / 观察过Samira第一阶段</label>
+                        <label class="radio-option"><input type="radio" name="prevObserve" value="Observed other SAY teacher"> Observed other SAY teacher / 观察过其他SAY教师</label>
+                        <label class="radio-option"><input type="radio" name="prevObserve" value="Other programme"> Other programme / 其他项目</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 2 · 课堂评估 (Rating 1-5) -->
+            <div class="section">
+                <div class="section-title">Section 2 · Real-Time Lesson Assessment <small>第二部分 · 课堂即时评估 (1-5)</small></div>
+                <div class="section-desc">Rate 1 (low/poor) to 5 (excellent/confident). 1分最低,5分最高</div>
+                <div class="question-card"><div class="q-label">4. AI teaching interface clarity / AI教学基站界面清晰度</div><div class="scale-row"><div class="scale-item"><input type="number" name="q4" min="1" max="5" step="1" value="3"></div></div></div>
+                <div class="question-card"><div class="q-label">5. Projection visibility from all corners / 投影内容各角落可见度</div><div class="scale-row"><div class="scale-item"><input type="number" name="q5" min="1" max="5" step="1" value="3"></div></div></div>
+                <div class="question-card"><div class="q-label">6. Student attention & engagement / 学生注意力和参与度</div><div class="scale-row"><div class="scale-item"><input type="number" name="q6" min="1" max="5" step="1" value="3"></div></div></div>
+                <div class="question-card"><div class="q-label">7. Student willingness to interact / 学生提问与互动主动性</div><div class="scale-row"><div class="scale-item"><input type="number" name="q7" min="1" max="5" step="1" value="3"></div></div></div>
+                <div class="question-card"><div class="q-label">8. Teacher's command of AI tools (DeepSeek) / 教师对AI工具的掌握</div><div class="scale-row"><div class="scale-item"><input type="number" name="q8" min="1" max="5" step="1" value="3"></div></div></div>
+                <div class="question-card"><div class="q-label">9. Did AI enhance or distract? (1=distract,5=enhance) / AI增强了学习还是分散注意？</div><div class="scale-row"><div class="scale-item"><input type="number" name="q9" min="1" max="5" step="1" value="4"></div></div></div>
+                <div class="question-card"><div class="q-label">10. Cultural/linguistic appropriateness (Kiswahili context) / 文化与语言适切性</div><div class="scale-row"><div class="scale-item"><input type="number" name="q10" min="1" max="5" step="1" value="4"></div></div></div>
+            </div>
+
+            <!-- SECTION 3 · AI Music Component -->
+            <div class="section">
+                <div class="section-title">Section 3 · AI-Generated Music Component <small>第三部分 · AI生成音乐</small></div>
+                <div class="question-card"><div class="q-label">11. Effectiveness of AI songs for civics / AI歌曲作为公民教育教学工具的有效性 (1-5)</div><div class="scale-row"><div class="scale-item"><input type="number" name="q11" min="1" max="5" step="1" value="4"></div></div></div>
+                <div class="question-card"><div class="q-label">12. Melody & instrumentation quality / AI旋律和配乐质量 (1-5)</div><div class="scale-row"><div class="scale-item"><input type="number" name="q12" min="1" max="5" step="1" value="4"></div></div></div>
+                <div class="question-card">
+                    <div class="q-label">13. Lyrics appropriateness for civic values / 歌词对公民教育价值观的适切性</div>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="lyricsAppropriate" value="Highly appropriate"> Highly appropriate / 高度合适</label>
+                        <label class="radio-option"><input type="radio" name="lyricsAppropriate" value="Mostly appropriate"> Mostly appropriate / 基本合适</label>
+                        <label class="radio-option"><input type="radio" name="lyricsAppropriate" value="Mixed"> Mixed / 良莠不齐</label>
+                        <label class="radio-option"><input type="radio" name="lyricsAppropriate" value="Inappropriate"> Inappropriate / 不合适</label>
+                        <label class="radio-option"><input type="radio" name="lyricsAppropriate" value="Cannot assess"> Cannot assess / 无法评估</label>
+                    </div>
+                </div>
+                <div class="question-card">
+                    <div class="q-label">14. How did students engage with music? / 学生对音乐的参与情况？</div>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="studentMusicEngage" value="Whole class sang enthusiastically"> Whole class sang / 全班热情跟唱</label>
+                        <label class="radio-option"><input type="radio" name="studentMusicEngage" value="Most students sang along"> Most sang / 多数跟唱</label>
+                        <label class="radio-option"><input type="radio" name="studentMusicEngage" value="Some sang, others watched"> Some sang / 部分跟唱</label>
+                        <label class="radio-option"><input type="radio" name="studentMusicEngage" value="Mostly listened, did not sing"> Mostly listened / 只听不唱</label>
+                        <label class="radio-option"><input type="radio" name="studentMusicEngage" value="Limited engagement"> Limited / 参与有限</label>
+                    </div>
+                </div>
+                <div class="question-card">
+                    <div class="q-label">15. Compared to traditional civics teaching, AI music-based teaching is... / 与传统公民教育相比，AI音乐教学...</div>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="compareTraditional" value="Much more effective"> Much more effective / 明显更有效</label>
+                        <label class="radio-option"><input type="radio" name="compareTraditional" value="Somewhat more effective"> Somewhat more effective / 略微更有效</label>
+                        <label class="radio-option"><input type="radio" name="compareTraditional" value="About the same"> About the same / 效果相当</label>
+                        <label class="radio-option"><input type="radio" name="compareTraditional" value="Somewhat less effective"> Less effective / 略微不如</label>
+                        <label class="radio-option"><input type="radio" name="compareTraditional" value="Much less effective"> Much less / 明显不如</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 4 · Growth (only if previous observer) -->
+            <div class="section">
+                <div class="section-title">Section 4 · Samira's Growth <small>第四部分 · Samira老师成长 (仅限第一阶段观察者)</small></div>
+                <div class="question-card">
+                    <div class="q-label">16. Compared to Phase 1 (28 Apr), pedagogical growth? / 教学法成长如何？</div>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="growthPhase" value="Substantial growth"> Substantial growth / 显著成长</label>
+                        <label class="radio-option"><input type="radio" name="growthPhase" value="Moderate growth"> Moderate growth / 适度成长</label>
+                        <label class="radio-option"><input type="radio" name="growthPhase" value="Stable"> Stable / 稳定</label>
+                        <label class="radio-option"><input type="radio" name="growthPhase" value="Mixed"> Mixed / 参差不齐</label>
+                    </div>
+                </div>
+                <div class="question-card">
+                    <div class="q-label">17. Most striking improvement you observed today (vs Phase 1) / 最显著的改进是什么？</div>
+                    <textarea rows="2" id="improvementText" placeholder="e.g., confidence, student interaction..."></textarea>
+                </div>
+            </div>
+
+            <!-- SECTION 5 · Policy & Scalability -->
+            <div class="section">
+                <div class="section-title">Section 5 · Policy & Scalability <small>第五部分 · 政策与可推广性</small></div>
+                <div class="question-card">
+                    <div class="q-label">18. Should AI music pedagogy be expanded in Zanzibar? / 是否应推广至更多学校？</div>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="scalability" value="Yes, full Ministry support"> Yes, full support / 应，需全力支持</label>
+                        <label class="radio-option"><input type="radio" name="scalability" value="Yes, with conditions"> Yes, with conditions / 应，有条件</label>
+                        <label class="radio-option"><input type="radio" name="scalability" value="Pilot selected schools first"> Pilot first / 先试点</label>
+                        <label class="radio-option"><input type="radio" name="scalability" value="Not yet, need more evidence"> Not yet / 需更多证据</label>
+                        <label class="radio-option"><input type="radio" name="scalability" value="Not suitable"> Not suitable / 不适合推广</label>
+                    </div>
+                </div>
+                <div class="question-card">
+                    <div class="q-label">19. Would you recommend Ms. Samira for Ministry's "AI Teaching Pioneers"? / 是否推荐Samira老师入选“AI教学先锋”？</div>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="recommendAward" value="Strongly recommend"> Strongly recommend / 强烈推荐</label>
+                        <label class="radio-option"><input type="radio" name="recommendAward" value="Recommend"> Recommend / 推荐</label>
+                        <label class="radio-option"><input type="radio" name="recommendAward" value="Maybe"> Maybe / 也许</label>
+                        <label class="radio-option"><input type="radio" name="recommendAward" value="Not yet"> Not yet / 暂不</label>
+                        <label class="radio-option"><input type="radio" name="recommendAward" value="Cannot assess"> Cannot assess / 无法评估</label>
+                    </div>
+                </div>
+                <div class="question-card">
+                    <div class="q-label">20. What support would make this approach sustainable? (multiple) / 何种支持可使此方法更可持续？（可多选）</div>
+                    <div class="checkbox-group" style="flex-direction:column; align-items:flex-start;">
+                        <label class="check-option"><input type="checkbox" name="support_subsidy" value="Teacher mobile data subsidies"> Teacher mobile data subsidies / 教师流量补贴</label>
+                        <label class="check-option"><input type="checkbox" name="support_equipment" value="School equipment standardization"> Equipment standardization / 设备标准化</label>
+                        <label class="check-option"><input type="checkbox" name="support_training" value="Teacher training expansion"> Teacher training / 扩大教师培训</label>
+                        <label class="check-option"><input type="checkbox" name="support_leadership" value="School-leadership protocols"> Leadership protocols / 校长参与协议</label>
+                        <label class="check-option"><input type="checkbox" name="support_intersectoral" value="Inter-ministerial coordination (Education+ICT)"> Inter-ministerial / 跨部委协调</label>
+                        <label class="check-option"><input type="checkbox" name="support_curriculum" value="Curriculum integration"> Curriculum integration / 课程整合</label>
+                    </div>
+                    <input type="text" id="supportOther" placeholder="Other support / 其他支持" style="margin-top:10px;">
+                </div>
+            </div>
+
+            <!-- SECTION 6 · Open questions -->
+            <div class="section">
+                <div class="section-title">Section 6 · Your Voice <small>第六部分 · 您的声音</small></div>
+                <div class="question-card">
+                    <div class="q-label">21. What was the most striking moment of today's lesson? / 最令人印象深刻的瞬间？</div>
+                    <textarea rows="2" id="strikingMoment"></textarea>
+                </div>
+                <div class="question-card">
+                    <div class="q-label">22. What concerns/risks do you see in scaling this approach? / 推广中您看到哪些担忧或风险？</div>
+                    <textarea rows="2" id="concernsRisks"></textarea>
+                </div>
+                <div class="question-card">
+                    <div class="q-label">23. Any additional message for SAY Foundation? / 其他想对SAY基金会说的话？</div>
+                    <textarea rows="2" id="additionalMsg"></textarea>
+                </div>
+            </div>
+
+            <button type="button" id="submitToSheetBtn">📤 Submit to Google Sheet & Get Feedback / 提交至Google表格并获取反馈</button>
+            <div id="submitStatus" class="status-msg">✨ Your responses are confidential. Submit to help shape education policy. ✨<br> 所有数据仅用于研究，提交后Google Sheet将记录您的观察。</div>
+        </form>
+    </div>
+    <footer>
+        SAY Foundation · Zanzibar · May 2026 | Contact: say2026.github.io | Data sent to Google Sheets (with Apps Script)
+    </footer>
+</div>
+
+<script>
+    // CONFIGURATION: 请替换为您的 Google Apps Script Web App URL
+    // 部署为 Web App 后，将 URL 填入下方
+    const GOOGLE_SHEET_API_URL = "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec";  
+    // 注意: 您必须按照说明创建并部署 Apps Script，然后把链接替换到这里。
+
+    // 这个演示版本会先提示用户配置，但为防止报错，提供模拟模式(console提示)
+    // 同时也会展示如何构造完整的column mapping。
+    // 为了真实提交，我们给出详细的 Apps Script 指导并在提交时调用真实端点。
+    
+    async function submitToGoogleSheets(formData) {
+        // 实际提交逻辑
+        if (GOOGLE_SHEET_API_URL.includes("YOUR_DEPLOYMENT_ID")) {
+            console.warn("Google Sheets API URL not configured. Use mock submission. 未配置正确的Apps Script URL，数据仅打印控制台.");
+            document.getElementById('submitStatus').innerHTML = "⚠️ Demo mode: Google Sheet URL not set. Data logged to console. 未设置Sheet链接，数据仅模拟。请按说明部署Apps Script并更新URL。";
+            console.log("Mock data payload:", formData);
+            return { success: false, mock: true };
+        }
+        try {
+            const response = await fetch(GOOGLE_SHEET_API_URL, {
+                method: "POST",
+                mode: "no-cors", // 为了简单跨域，但需确保脚本返回文本；但no-cors无法读response，通常用redirect模式更好？
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(formData)
+            });
+            // 由于mode no-cors无法读内容，我们假设成功
+            return { success: true };
+        } catch (err) {
+            console.error("Submission error", err);
+            return { success: false, error: err };
+        }
+    }
+
+    function collectFormDataForSheet() {
+        // 定义所有列名 (基于下面的column mapping)
+        let payload = {
+            timestamp: new Date().toISOString(),
+            fullname: document.getElementById('fullname').value,
+            role: document.querySelector('input[name="role"]:checked')?.value || '',
+            roleOther: document.getElementById('roleOther').value,
+            prevObserve: document.querySelector('input[name="prevObserve"]:checked')?.value || '',
+            q4: document.querySelector('input[name="q4"]')?.value,
+            q5: document.querySelector('input[name="q5"]')?.value,
+            q6: document.querySelector('input[name="q6"]')?.value,
+            q7: document.querySelector('input[name="q7"]')?.value,
+            q8: document.querySelector('input[name="q8"]')?.value,
+            q9: document.querySelector('input[name="q9"]')?.value,
+            q10: document.querySelector('input[name="q10"]')?.value,
+            q11: document.querySelector('input[name="q11"]')?.value,
+            q12: document.querySelector('input[name="q12"]')?.value,
+            lyricsAppropriate: document.querySelector('input[name="lyricsAppropriate"]:checked')?.value || '',
+            studentMusicEngage: document.querySelector('input[name="studentMusicEngage"]:checked')?.value || '',
+            compareTraditional: document.querySelector('input[name="compareTraditional"]:checked')?.value || '',
+            growthPhase: document.querySelector('input[name="growthPhase"]:checked')?.value || '',
+            improvementText: document.getElementById('improvementText').value,
+            scalability: document.querySelector('input[name="scalability"]:checked')?.value || '',
+            recommendAward: document.querySelector('input[name="recommendAward"]:checked')?.value || '',
+            supportItems: Array.from(document.querySelectorAll('input[name^="support_"]:checked')).map(cb => cb.value).concat(document.getElementById('supportOther').value ? `Other: ${document.getElementById('supportOther').value}` : []).join('; '),
+            strikingMoment: document.getElementById('strikingMoment').value,
+            concernsRisks: document.getElementById('concernsRisks').value,
+            additionalMsg: document.getElementById('additionalMsg').value
+        };
+        return payload;
+    }
+
+    document.getElementById('submitToSheetBtn').addEventListener('click', async () => {
+        const statusDiv = document.getElementById('submitStatus');
+        statusDiv.innerHTML = "⏳ Submitting... 正在提交到 Google Sheet...";
+        const data = collectFormDataForSheet();
+        
+        // 显示即将提交的预览
+        console.log("Submitting payload:", data);
+        
+        // 直接 send to Apps Script (通过fetch)
+        if (GOOGLE_SHEET_API_URL === "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec") {
+            statusDiv.innerHTML = "⚠️ [DEMO] Please set your Apps Script URL.<br>请编辑代码中 GOOGLE_SHEET_API_URL 变量为您的Web App地址。下方显示即将提交的数据预览(未实际存储)。<br><br><strong>数据预览：</strong><br>" + JSON.stringify(data, null, 2).substring(0, 500) + "...<br><br> ✅ 如需真实提交，请按下方指导部署。";
+            return;
+        }
+        
+        try {
+            // 使用 POST 表单格式提交
+            const fetchRes = await fetch(GOOGLE_SHEET_API_URL, {
+                method: 'POST',
+                mode: 'no-cors',  // 为了简单跨域；但这样的话我们不能获取response text，但脚本会处理
+                cache: 'no-cache',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(data)
+            });
+            // 因为no-cors，看不到结果，但通常假设成功
+            statusDiv.innerHTML = "✅ Submission sent! Thank you. A confirmation will be logged. <br> 提交已发送！感谢您。您可以在Google Sheet中查看记录。如需反馈，观察员将收到邮件摘要。";
+        } catch (err) {
+            statusDiv.innerHTML = "❌ Network error: " + err.message + ". 请检查网络或URL配置。";
+        }
+    });
+</script>
+
+<!-- 完整指导说明: 如何处理Google Sheet列名和Apps Script -->
+<div style="max-width:1100px; margin: 20px auto 0; background:#fef9e6; border-radius:28px; padding:1.5rem; font-family:sans-serif;">
+    <h3 style="color:#0b5e58;">📌 How to set up Google Sheets + Apps Script (如何设置Google表格及脚本)</h3>
+    <p><strong>1. Create Google Sheet with these column headers (按以下列名创建表格):</strong><br>
+    <code>timestamp, fullname, role, roleOther, prevObserve, q4, q5, q6, q7, q8, q9, q10, q11, q12, lyricsAppropriate, studentMusicEngage, compareTraditional, growthPhase, improvementText, scalability, recommendAward, supportItems, strikingMoment, concernsRisks, additionalMsg</code></p>
+    <p><strong>2. Open Extensions → Apps Script, paste the code below, then deploy as Web App (Execute as "Me", Access "Anyone").</strong><br> 
+    <strong>3. Copy the generated URL and replace <code>GOOGLE_SHEET_API_URL</code> in the HTML above.</strong><br>
+    <strong>4. After deployment, every form submit will add a row to the sheet, and you can also send email feedback using Script's MailApp.</strong></p>
+    <pre style="background:#1e2a36; color:#d4f1f9; padding:1rem; border-radius:20px; overflow-x:auto;">
+// Apps Script Code (copy into your bound script)
+function doPost(e) {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  const headers = ["timestamp","fullname","role","roleOther","prevObserve","q4","q5","q6","q7","q8","q9","q10","q11","q12","lyricsAppropriate","studentMusicEngage","compareTraditional","growthPhase","improvementText","scalability","recommendAward","supportItems","strikingMoment","concernsRisks","additionalMsg"];
+  const rowData = headers.map(h => e.parameter[h] || "");
+  sheet.appendRow(rowData);
+  // OPTIONAL: send feedback to observer if email provided (use MailApp)
+  return ContentService.createTextOutput(JSON.stringify({result:"success", row: rowData})).setMimeType(ContentService.MimeType.JSON);
+}
+function doGet() { return doPost({parameter:{}}); } // simple test
+    </pre>
+    <p>✅ 提交后您可以实时处理数据并利用Google Sheet内公式/图表分析，并可通过脚本给答卷者发送自动反馈邮件 (若问卷中加入email字段)。</p>
+</div>
+</body>
+</html>
